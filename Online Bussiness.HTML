@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMEN YouTube & GOGS Telegram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 40px;
+            margin: 20px;
+            font-size: 20px;
+            color: white;
+            background-color: green;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .btn.disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to AMEN-GOGS</h1>
+    <h2>Make Money Online</h2>
+    <h3>Steps</h3>
+    <p>First, Subscribe to AMEN YouTube Channel</p>
+    <p>Then, Join GOGS Telegram Channel</p>
+    <p>Finally, Follow the Instructions</p>
+
+    <!-- YouTube Icon Button -->
+    <a id="subscribeBtn" class="btn" onclick="redirectToYouTube()">
+        <i class="fab fa-youtube icon"></i>
+        Subscribe to AMEN YouTube Channel
+    </a>
+
+    <br>
+
+    <!-- Telegram Icon Button -->
+    <a id="telegramBtn" class="btn disabled" href="#" onclick="checkSubscription()">
+        <i class="fab fa-telegram-plane icon"></i>
+        Join GOGS Telegram Channel
+    </a>
+
+    <script>
+        // Function to redirect user to YouTube subscription link
+        function redirectToYouTube() {
+            // Open YouTube subscription link in a new tab
+            window.open("https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA?sub_confirmation=1", "_blank");
+            // Enable Telegram button after the user has visited YouTube
+            setTimeout(function() {
+                alert("Thanks for visiting the YouTube channel! You can now join the Telegram group.");
+                document.getElementById('telegramBtn').classList.remove('disabled');
+                document.getElementById('telegramBtn').href = "https://t.me/GOGSmore";
+            }, 3000); // Simulate a delay for subscription action
+        }
+
+        // Function to check if the Telegram button is clickable
+        function checkSubscription() {
+            if (document.getElementById('telegramBtn').classList.contains('disabled')) {
+                alert("Please subscribe to the YouTube channel before joining Telegram.");
+            }
+        }
+    </script>
+
+</body>
+</html>
